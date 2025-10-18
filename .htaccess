@@ -1,0 +1,4 @@
+RedirectMatch 403 ^/app/
+
+RewriteEngine On
+RewriteRule ^$ public/ [L]
