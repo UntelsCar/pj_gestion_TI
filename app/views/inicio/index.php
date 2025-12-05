@@ -5,7 +5,8 @@
     <title><?= $titulo ?></title>
 </head>
 <body>
-    <h1><?= $titulo ?></h1>
-    <p><?= $mensaje ?></p>
+    <!-- <h1><?= $titulo ?></h1>
+    <p><?= $mensaje ?></p> -->
+    
 </body>
 </html>
