@@ -11,8 +11,8 @@
 
     <h2><?= $modulo['codigo'] ?> - <?= $modulo['nombre'] ?></h2>
 
-    <form action="?url=PlanificacionGestionCostos/guardar" method="POST" enctype="multipart/form-data">
-
+    <form action="?url=PlanificacionGestionCostos/guardar/{modulo_id}" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="modulo_id" value="<?= $modulo['id'] ?>">
         <table border="1" cellpadding="5" cellspacing="0">
 
             <tr>
@@ -78,23 +78,23 @@
             <?php endforeach; ?>
                         <!-- TOTALES DEL MÓDULO -->
             <tr>
-                <td colspan="2"><strong>TOTAL AVANCE <?= $modulo['codigo'] ?> EN DECIMAL</strong></td>
+                <td colspan="2"><strong>TOTAL AVANCE <?= $modulo['nombre'] ?> EN DECIMAL</strong></td>
                 <td><?= $total_modulo_decimal ?></td>
             </tr>
 
             <tr>
-                <td colspan="2"><strong>TOTAL AVANCE <?= $modulo['codigo'] ?> PORCENTUAL</strong></td>
+                <td colspan="2"><strong>TOTAL AVANCE <?= $modulo['nombre'] ?> PORCENTUAL</strong></td>
                 <td><?= number_format($total_modulo_porcentual, 2) ?>%</td>
             </tr>
 
             <?php foreach ($categorias as $cat): ?>
                 <tr>
-                    <td colspan="2">Total Avance <?= $cat['codigo'] ?> en decimal</td>
+                    <td colspan="2">Total Avance <?= $cat['nombre'] ?> en decimal</td>
                     <td><?= $cat['avance_decimal'] ?></td>
                 </tr>
 
                 <tr>
-                    <td colspan="2">Total Avance <?= $cat['codigo'] ?> en Porcentual</td>
+                    <td colspan="2">Total Avance <?= $cat['nombre'] ?> en Porcentual</td>
                     <td><?= number_format($cat['avance_porcentual'], 2) ?>%</td>
                 </tr>
             <?php endforeach; ?>

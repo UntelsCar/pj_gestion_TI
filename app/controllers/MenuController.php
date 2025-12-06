@@ -3,9 +3,9 @@
 class MenuController extends Controller
 {   
 
-    public function __construct() {
-        Auth::verificar();
-    }
+    // public function __construct() {
+    //     Auth::verificar();
+    // }
 
     public function index()
     {

@@ -40,6 +40,7 @@ class PlanificacionGestionCostosController extends Controller
         $totalCumplidosModulo = $modeloItem->contarItemsCumplidosModulo($moduloId);
 
         $data = [
+            "id_modulo" => $moduloId,
             "modulo" => $modulo,
             "categorias" => $categorias,
             "total_modulo_decimal" => $totalCumplidosModulo,
@@ -49,7 +50,7 @@ class PlanificacionGestionCostosController extends Controller
         $this->view('Gestion_Costos_Proyecto/Index', $data);
     }
 
-    public function guardar()
+    public function guardar($id_modulo)
     {
         $modeloItem = $this->model("ItemModel");
 
@@ -77,8 +78,7 @@ class PlanificacionGestionCostosController extends Controller
             // Guardar en BD
             $modeloItem->guardarCampos($itemId, $valorCumplio, $descripcion, $fecha, $observaciones, $evidenciaNombre, $evidenciaRuta);
         }
-
-        // redirigir nuevamente al módulo
-        header("Location: ?url=PlanificacionGestionCostos/index");
+        $moduloId = $_POST['modulo_id'];
+        header("Location: ?url=PlanificacionGestionCostos/index/$moduloId");
     }
 }
